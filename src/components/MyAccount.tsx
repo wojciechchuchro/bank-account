@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
+import Home from "./Home";
 export default function Account() {
-  const [money, setMoney] = useState<number>(15000);
   return (
     <>
-      <NavBar money={money} />
+      <div className="">My Account</div>
     </>
   );
 }
