@@ -1,21 +1,15 @@
 import { Home, Notification, Banknotes, User, Logout } from "../images/Icons";
 import { useNavigate } from "react-router-dom";
-export default function NavBar({ money }: { money: number }) {
+import { getAuth, signOut } from "firebase/auth";
+export default function NavBar() {
+  const auth = getAuth();
   const navigate = useNavigate();
   return (
     <div className="flex justify-center w-full text-gray-300 -2 border-solid border-b">
-      {/* <div className="pb-5">
-        <User />
-        <div>Account balance</div>
-        <div>
-          {money}
-          <span className="text-xs pl-1 text-gray-400">PLN</span>
-        </div>
-      </div> */}
       <div className="flex">
         <div className="p-2 ">
           <div
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/")}
             className="flex p-1 cursor-pointer hover:bg-slate-800 rounded-lg"
           >
             <span className="pr-3">
@@ -62,7 +56,7 @@ export default function NavBar({ money }: { money: number }) {
             <span className="pr-3">
               <Logout />
             </span>
-            <div>Logout</div>
+            <button onClick={() => signOut(auth)}>Logout</button>
           </div>
         </div>
       </div>
