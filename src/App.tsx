@@ -14,7 +14,7 @@ import { config } from "./config";
 initializeApp(config.firebaseConfig);
 
 function App() {
-  const [money, setMoney] = useState<number>(15000);
+  const [money, setMoney] = useState<number>(15000.76);
   return (
     <div className="bg-slate-900 h-screen">
       <BrowserRouter>
