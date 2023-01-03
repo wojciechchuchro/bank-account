@@ -1,13 +1,12 @@
 import React from "react";
-import { getAuth, signOut } from "firebase/auth";
-import { User, Arrows, Card, Clipboard, LightBulb } from "../images/Icons";
-export interface IHomePageProps {
+import { Arrows, Card, Clipboard, LightBulb } from "../images/Icons";
+import { useNavigate } from "react-router-dom";
+export interface HomePageProps {
   money: number;
 }
 
-const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
-  const auth = getAuth();
-  const { money } = props;
+const HomePage: React.FunctionComponent<HomePageProps> = ({ money }) => {
+  const navigate = useNavigate();
   return (
     <div className="text-gray-200 m-3">
       <div className="pb-5">
@@ -15,7 +14,9 @@ const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
           <div>
             <div className="font-bold text-2xl">Type of account</div>
             <div className="flex text-sm justify-items-center pt-2">
-              <Clipboard />
+              <span className="cursor-pointer">
+                <Clipboard />
+              </span>
               82 1149 2034 0000 3424 5234 2342
             </div>
           </div>
@@ -29,7 +30,10 @@ const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
             <div className="text-sm pt-3">
               Expenses till (currentdate): money spended
             </div>
-            <button className="rounded-xl mt-5 p-1 px-3 flex align-between text-slate-900 bg-gray-200">
+            <button
+              onClick={() => navigate("/transfer")}
+              className="rounded-xl mt-5 p-1 px-3 flex align-between text-slate-900 bg-gray-200"
+            >
               <Arrows />
               TRANSFER
             </button>

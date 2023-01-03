@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { config } from "./config";
+import Transfer from "./pages/Transfer";
 
 initializeApp(config.firebaseConfig);
 
@@ -49,6 +50,14 @@ function App() {
             element={
               <AuthRoute>
                 <Notification />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/transfer"
+            element={
+              <AuthRoute>
+                <Transfer />
               </AuthRoute>
             }
           />
