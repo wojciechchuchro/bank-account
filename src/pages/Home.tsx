@@ -1,11 +1,8 @@
 import React from "react";
 import { Arrows, Card, Clipboard, LightBulb } from "../images/Icons";
 import { useNavigate } from "react-router-dom";
-export interface HomePageProps {
-  money: number;
-}
 
-const HomePage: React.FunctionComponent<HomePageProps> = ({ money }) => {
+const HomePage = ({ money }: { money: number }) => {
   const navigate = useNavigate();
   return (
     <div className="text-gray-200 m-3">
